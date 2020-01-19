@@ -1,0 +1,35 @@
+<import-sjs from="../goods/image.sjs" name="util" />
+<view>
+<view  class="tab-list">
+  <view a:for="{{tabs}}" >
+    <view class="tab {{item.typeId==selectType?'select':''}}" data-id="{{item.typeId}}" onTap="selectTab">{{item.tabName}}</view>
+  </view>
+</view>
+<view a:if="{{!hasUserInfo}}" class="empty">
+  <view class="empty-list">
+    <image mode="scaleToFill" src="../images/empty.png" class="empty-img"/>
+  </view>
+  
+  <view style="color:#666; margin-top:10rpx">请先登录哦</view>
+</view>
+<view a:elif="{{orderList.length==0}}" class="empty">
+   <view class="empty-list">
+    <image mode="scaleToFill" src="../images/empty.png" class="empty-img"/>
+  </view>
+  <view style="color:#666; margin-top:10rpx">暂无记录哦</view>
+</view>
+<scroll-view a:else scroll-y="true" style="height: 92vh;background-color: #F5F5F9;" onScrollToLower="onScrollToLower">
+  <view a:for="{{orderList}}">
+  <view  class="order" >
+      <view class="order-detail" data-orderNo="{{item.orderNo}}" onTap="viewDetail">
+        <view class="order-msg">订单编号：{{item.orderNo}}</view>
+        <view class="order-msg">下单时间：{{util.time(item.createTime)}}</view>
+        <view class="order-msg">订单总价：{{util.price(item.money)}}</view>
+        <view class="order-msg">实付金额：{{util.price(item.money)}}</view>
+      </view>
+      <button data-orderNo="{{item.orderNo}}" onTap="viewDetail">{{item.operateType==6?"重新发货":'查看'}}</button>
+      <button a:if="{{selectType==4}}" data-orderNo='{{item.orderNo}}' data-money='{{item.money}}' onTap="refund">退款</button>
+  </view>
+  </view>
+</scroll-view>
+</view>

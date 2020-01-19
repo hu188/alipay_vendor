@@ -1,0 +1,19 @@
+.userInfo{
+  width: 100vw;
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.userImg{
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50%
+}
+.empty{
+  height: 2vh;
+  background-color: #F5F5F9;
+  width: 100vw;
+}

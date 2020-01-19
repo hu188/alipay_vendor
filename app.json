@@ -1,0 +1,38 @@
+{
+  "pages": [
+    
+    "pages/goods/goods",
+    "pages/mycenter/userInfo/userInfo",
+    "pages/order/orderDetail/orderDetail",
+    "pages/index/index",
+    "pages/mycenter/mycenter",
+    "pages/submitOrder/submitOrder",
+    "pages/order/order"
+    
+  ],
+  "tabBar": {
+    "textColor": "#707070",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/goods/goods",
+        "name": "首页",
+        "activeIcon": "pages/images/active_index.png",
+        "icon": "pages/images/index.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "name": "订单",
+        "activeIcon": "pages/images/active_order.png",
+        "icon": "pages/images/order.png"
+      },
+      {
+        "pagePath": "pages/mycenter/mycenter",
+        "name": "我的中心",
+        "activeIcon": "pages/images/active_mycenter.png",
+        "icon": "pages/images/mycenter.png"
+      }
+    ]
+  }
+}

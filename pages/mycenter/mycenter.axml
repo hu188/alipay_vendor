@@ -1,0 +1,18 @@
+<view class="userInfo" a:if="{{hasUserInfo}}">
+  <image mode="scaleToFill" src="{{userInfo.headimgurl?userInfo.headimgurl:'../images/user.png'}}" class="userImg"/>
+  <view>{{userInfo.nickName}}</view>
+</view>
+<view class="userInfo" a:else onTap="onGetAuthorize">
+  <image mode="scaleToFill" src="{{userInfo.headimgurl?userInfo.headimgurl:'../images/user.png'}}" class="userImg"/>
+  
+  <view >
+    <button  size ="mini" type="primary" >
+   授权登录
+    </button>
+  </view>
+</view>
+<view class="empty"></view>
+<list>
+  <list-item thumb="../images/orders.png" arrow="{{true}}" onClick="viewOrders">订单</list-item>
+  <list-item thumb="../images/kefu.png" arrow="{{true}}">客服</list-item>
+</list>

@@ -1,0 +1,78 @@
+<!--<import-sjs from="../../utils.image.sjs" name = "util"/> -->
+<import-sjs from="./image.sjs" name="util" />
+<view a:if="{{sign}}">
+  <view class="flex-row">
+    <!-- 左边选择器 -->
+    <scroll-view class="type-list-left" a:if="{{goodsList.length>0}}" scroll-y=true>
+      <view a:for="{{goodsList}}" class="">
+        <view class="{{checkIndex==item.index?'active':''}} goods-type" data-index="{{index}}" onTap="changeType">{{item.type}}</view>
+      </view>
+    </scroll-view>
+    <!-- 右边商品区 -->
+    <scroll-view scroll-y=true class="good-list-right" scroll-into-view="g{{checkIndex}}" onScroll="scroll">
+      <view a:for="{{goodsList}}" a:for-index="index">
+        <view class="good-type" id="g{{item.index}}"> {{item.type}}</view>
+        <view a:for="{{item.goodsList}}" class="good flex-row " a:for-item="good" a:for-index="goodId">
+          <image mode="scaleToFill" src="{{util.images(good.picture,randomNum)}}" class="good-image" />
+          <view style="width:400rpx;">
+            <view class="good-name">{{good.commodityName}}</view>
+            <view class="good-price">
+              <text style="color:#ff0000">{{good.retailPrice}}</text>
+              <!--<stepper step="1" min="0" max="{{good.num}}" value="{{good.count?good.count:0}}" showNumber="{{true}}" goodType="{{index}}" goodId="{{goodId}}" onChange="onChange"></stepper> -->
+              <view class="am-stepper-content ">
+                <view class="am-stepper-reduce" style="visibility:{{good.count==0?'hidden':''}}" data-type="reduce" data-goodType="{{index}}" data-goodIndex="{{goodId}}" onTap="onChange" />
+                <view class="am-stepper-input" style="visibility:{{good.count==0?'hidden':''}}">{{good.count}}</view>
+                <view class="am-stepper-add" style="opacity:{{good.num == good.count ?'0.4':'1'}}" disabled="{{good.num == good.count?true:false}}" data-type="add" data-goodType="{{index}}" data-goodIndex="{{goodId}}" onTap="onChange" />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="empty-goods"></view>
+    </scroll-view>
+  </view>
+  <!-- 购物车 -->
+  <view class="shopping-car-show" hidden="{{g_Count>0?false:true}}">
+    <view class="shopping-car">
+      <image mode="scaleToFill" src="../images/shopping-car.png" class="car-img" onTap="showCarDetails"/>
+      <view class="car-msg" onTap="showCarDetails">
+        <text>{{g_Count}}份 |</text>
+        <text>￥{{util.price(g_total_money)}}</text>
+      </view>
+      <view class="car-pay" onTap="toPay">去结算</view>
+    </view>
+  </view>
+  <!-- 购物车详情 -->
+  <view class="shopping-carDetails-show" hidden="{{hideCarDetails}}" onTap="hideCarDetails"></view>
+  <view class="cartlist-float" hidden="{{hideCarDetails}}">
+    <view class="cartlist-top">
+      <text style="font-weight:bold">已选商品</text>
+      <view onTap="clearCarDetails">
+        <image mode="scaleToFill" src="../images/clear.png" class="clear-img"/>
+        <!--<view>清空</view> -->
+      </view>
+    </view>
+    <scroll-view scroll-y="true" class="{{gList.length>5?'cart-scroll-list':''}}">
+      <view a:for="{{gList}}" class="cart-list-box">
+        <text style="width:60%">{{item.commodityName}}</text>
+        <text style="width:20%">{{item.retailPrice}} x {{item.count}}</text>
+        <view class="am-stepper-content ">
+          <view class="am-stepper-reduce" style="visibility:{{item.count==0?'hidden':''}}" data-type="reduce" data-goodId="{{item.goodId}}" onTap="cartChange" />
+          <view class="am-stepper-input" style="visibility:{{item.count==0?'hidden':''}}">{{item.count}}</view>
+          <view class="am-stepper-add" style="opacity:{{item.num == item.count ?'0.4':'1'}}" disabled="{{item.num == item.count?true:false}}" data-type="add" data-goodId="{{item.goodId}}" onTap="cartChange" />
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view a:else style="width:100vw;height:100vh;padding-top:50rpx;">
+  <view class="inform">
+    <image mode="scaleToFill" src="../images/tz.png" style="width:50rpx;height:50rpx;margin-right:20rpx;"/>
+    <view>欢迎使用无人售货柜，请您先扫码使用</view>
+  </view>
+  <view class="scan-border">
+    <view class="scan-info" onTap="scan">
+      <image mode="scaleToFill" src="../images/scan.png" class="scan-img"/>
+    </view>
+  </view>
+</view>

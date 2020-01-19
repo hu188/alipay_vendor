@@ -1,0 +1,21 @@
+<view a:if="{{true}}">
+  
+  <list>
+    <list-item >
+      <text>头像</text>
+      <text>头像</text>
+    </list-item>
+    <list-item >
+      <text>头像</text>
+      <text>头像</text>
+    </list-item>
+    <list-item >
+      <text>头像</text>
+      <text>头像</text>
+    </list-item>
+    <list-item >
+      <text>头像</text>
+      <text>头像</text>
+    </list-item>
+  </list>
+</view>

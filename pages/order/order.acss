@@ -1,0 +1,69 @@
+.tab-list{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 8vh;
+}
+.tab{
+  width: 25vw;
+  text-align: center;
+  line-height: 3
+}
+.select{
+  border-bottom: 1px solid #49a9ee;
+  color: #49a9ee;
+}
+.order{
+  margin:0 10rpx 20rpx 10rpx;
+  background-color: #fff;
+  height: 340rpx;
+  border-radius: 10rpx;
+}
+.order-detail{
+  /* width: 100%; */
+  height: 200rpx;
+  border-bottom: 1px dashed #eee;
+  padding: 20rpx;
+}
+.order-msg{
+  margin: 15rpx 0;
+  color:#666;
+  font-size: 28rpx;
+}
+button{
+   background-color: #0289d1;
+    color: #fff;
+    width: 130rpx;
+    height: 70rpx;
+    line-height: 66rpx;
+    float:right;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 26rpx;
+    margin-right: 10rpx;
+    margin-top: 15rpx
+}
+.empty{
+width: 300rpx;
+height: 300rpx;
+position: absolute;
+top: calc( 50% - 50px );
+left: 225rpx;
+text-align: center;
+}
+.empty-list{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background-color: #49a9ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  margin: auto;
+}
+.empty-img{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}

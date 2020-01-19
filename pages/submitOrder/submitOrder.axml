@@ -1,0 +1,24 @@
+<view class="empty"></view>
+<view class="deviceName">
+  设备名称:{{deviceName}}
+</view>
+<view class="empty"></view>
+<view class="order-list">
+  <view a:for="{{gList.list}}" class="order-detail">
+    <view style="width:70%;font-weight:bold;">{{item.commodityName}}</view>
+    <view style="width:15%">x{{item.count}}</view>
+    <view style="width:15%;color:#f00">{{item.retailPrice}}</view>
+  </view>
+ 
+</view>
+<view class="empty"></view>
+<view class="pay-way">
+  <text style="font-weight:bold;">支付方式</text>
+  <text style="float:right;color:#666">支付宝</text>
+</view>
+<view class="empty"></view>
+<view class="order-total">共{{gList.g_Count}}件商品，合计：￥{{gList.g_total_money}}</view>
+<view class="order-pay">
+  <view class="pay-money">￥{{gList.g_total_money}}</view>
+  <view class="order-submit" onTap="submitOrderTap">支付</view>
+</view>

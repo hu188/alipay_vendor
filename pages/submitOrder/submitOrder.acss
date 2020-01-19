@@ -1,0 +1,59 @@
+.empty{
+  height: 1.5vh;
+  background-color: #F5F5F9;
+  width: 100vw;
+}
+.deviceName{
+  padding: 20rpx;
+  height: 4vh;
+  font-size: 36rpx;
+  font-weight: bold;
+  /* color: #49a9ee */
+}
+.order-list{
+  /* padding: 20rpx; */
+  color: #666;
+  width: 100vw;
+  /* margin: 20rpx; */
+}
+.order-detail{
+  margin: 10rpx 20rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.order-total{
+  text-align: right;
+  margin: 20rpx;
+  color:#f00;
+}
+.pay-way{
+  height: 90rpx;
+  line-height: 3;
+  margin: 0 20rpx;
+}
+.order-pay{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 90rpx;
+  display: flex;
+  
+}
+.pay-money{
+  width: 70%;
+  background-color: #ccc;
+  font-size: 34rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  padding-left: 30rpx;
+}
+.order-submit{
+  width: 30%;
+  background-color: #49a9ee;
+  font-size: 34rpx;
+  font-weight: bold;
+  line-height: 90rpx;
+  text-align: center;
+}
